@@ -10,7 +10,7 @@ Implement a smart contract to confirm the receival of product by the buyer as we
 
 ## Implementation
 - Smart contract written using solidity in Transact.sol file. Remix IDE used for testing.
-- abortTransaction() - aborts the transaction upon execution. It is only executable by the buyer. Refunds the seller the 3 times the value of the item and value equivalent to the value of the item to the buyer. 
+- abortTransaction() - aborts the transaction upon execution. It is only executable by the buyer. Refunds the seller the remaining balance of the transaction, i.e. 4x the value of the item.
 - confirmPurchase() - confirms the purchase of item by the buyer. It is only executable by the buyer. 
 - confirmItemReceived() - confirms the receival of item by the buyer. It is only executable by the buyer. Both the seller and the buyer are refunded their appropriate deposit amount on execution of the function.
 
