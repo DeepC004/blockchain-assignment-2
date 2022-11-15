@@ -17,6 +17,7 @@ contract Transact{
         seller = payable(msg.sender);
         value = msg.value / 2;
         require(msg.value == (2 * value), "The value has to be even.");
+        //the balance shown would be twice the cost of the item(consists security deposit)
     }
 
     function about() public {
@@ -25,6 +26,7 @@ contract Transact{
         emit Aborted(buyer);
         state = State.Inactive;
         seller.transfer(address(this).balance);
+        //This function allows the buyer to abort the transaction
     }
 
     function confirmPurchase() public payable{
@@ -33,6 +35,7 @@ contract Transact{
         emit PurchaseConfirmed(buyer, 2*value);
         buyer = payable(msg.sender);
         state = State.Acquire;
+        //In order to initiate the transaction, the buyer also has to deposit twice the cost of the item
     }
 
     function confirmItemReceived() public{
@@ -43,5 +46,7 @@ contract Transact{
         buyer.transfer(value);
         emit SellerRefunded(seller, 3*value);
         seller.transfer(value * 3);
+        //Once buyer confirms that they received the order using this, they will be receive half of what they deposited(half is credited to seller and half is returned)
+        //Seller receives his entire deposit plus the cost of item(half of buyer's deposit)
     }
 }
