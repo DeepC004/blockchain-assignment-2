@@ -21,7 +21,7 @@ contract Transact{
 
     //aborts the transaction if the buyer does not want to purchase the item; only executable by buyer
     //refunds seller his money and buyer money forfeited 
-    function abort() public {
+    function abortTransaction() public {
         require(msg.sender == buyer, "Only the buyer can call this functionality.");
         require(state == State.Make || state == State.Acquire, "Invalid state.");
         emit Aborted(buyer);
