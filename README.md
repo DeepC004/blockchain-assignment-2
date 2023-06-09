@@ -1,5 +1,7 @@
-# BITS-F452-Assignment-2
+# BITS F452 - Blockchain Technology
+
 Implementation of smart contract to ease the purchase of products online.
+
 ## Team Members (Group 26)
 1. Deep Chordia (2020A7PS2073H) 
 2. Neeraj Gunda (2020A7PS0169H) 
